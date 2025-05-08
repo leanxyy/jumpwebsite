@@ -1,4 +1,4 @@
-const { sendEmail } = require('../utils/emailSender');
+const { sendEmail } = require('./utils/emailSender');
 
 const submitContactForm = async (req, res) => {
     try {

@@ -1,5 +1,5 @@
 const path = require('path');
-const { sendEmail } = require('../utils/emailSender');
+const { sendEmail } = require('../utils/emailSender.js');
 const multer = require('multer');
 
 // Configure multer for file uploads

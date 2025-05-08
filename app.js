@@ -1,31 +1,64 @@
-{
-  "name": "jsi_web",
-  "version": "1.0.0",
-  "main": "app.js",
-  "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js",
-    "railway:debug": "node --inspect app.js", // For advanced debugging
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "clear-cache": "rm -rf node_modules package-lock.json", // Cross-platform fix
-    "reset": "npm run clear-cache && npm install",
-    "prepare": "npm install" // Auto-run on Railway builds
-  },
-  "engines": {
-    "node": "18.x", // Explicit Node.js version for Railway
-    "npm": "9.x"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "cors": "^2.8.5",
-    "dotenv": "^16.4.7",
-    "express": "^4.21.2",
-    "multer": "^1.4.5-lts.2",
-    "nodemailer": "^6.10.0"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.9"
-  }
+// Load environment FIRST
+require('dotenv').config({ path: require('path').resolve(__dirname, '.env') });
+const fs = require('fs'); // Required for debug logs
+const path = require('path');
+const express = require('express');
+const cors = require('cors');
+const careerRoutes = require('./routes/careerRoutes');
+const contactRoutes = require('./routes/contactRoutes');
+
+// ======================
+// DEBUGGING LOGS (REMOVE IN PRODUCTION)
+// ======================
+console.log('🚀 Starting server with environment:', {
+    EMAIL_USER: process.env.EMAIL_USER ? '***exists***' : 'MISSING',
+    NODE_ENV: process.env.NODE_ENV || 'development',
+    PORT: process.env.PORT || 'Not set (using default 3000)'
+});
+console.log('📁 Current directory:', __dirname);
+try {
+    console.log('📂 Public files:', fs.readdirSync(path.join(__dirname, 'public')));
+} catch (err) {
+    console.error('❌ Missing public folder! Fix path:', err);
 }
+// ======================
+
+const app = express();
+
+// Middleware
+app.use(cors({
+    origin: '*',
+    methods: ['GET', 'POST', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// Static files (IMPORTANT: Adjust path if your folder structure differs)
+app.use(express.static(path.join(__dirname, 'public')));
+app.use('/uploads', express.static(path.join(__dirname, 'public/uploads')));
+
+// Routes
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+app.use('/careers', careerRoutes);
+app.use('/contact', contactRoutes);
+
+// Error handling
+app.use((err, req, res, next) => {
+    console.error('💥 Server error:', err.stack);
+    res.status(500).json({ 
+        success: false,
+        message: 'Internal server error',
+        error: process.env.NODE_ENV === 'development' ? err.message : undefined
+    });
+});
+
+// Start Server (CRITICAL FIX: Use Railway's dynamic port)
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`✅ Server successfully running on port ${PORT}`);
+    console.log(`🌐 Access URL: https://${process.env.RAILWAY_PUBLIC_DOMAIN || `localhost:${PORT}`}`);
+});

@@ -1099,6 +1099,7 @@ a:hover {
         padding: 25px;
     }
 }
+
 /* Awards Section */
 .awards-section {
     padding: 80px 0;
@@ -1159,11 +1160,23 @@ a:hover {
     flex-shrink: 0;
 }
 
+.award-logo-container {
+    width: 180px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
 .award-logo {
-    width: 180px; /* Increased size */
-    height: 100px; /* Increased size */
+    max-width: 100%;
+    max-height: 100%;
     object-fit: contain;
-    margin-bottom: 20px;
+    filter: grayscale(0%);
     transition: all 0.3s ease;
 }
 
@@ -1174,7 +1187,7 @@ a:hover {
     transition: all 0.3s ease;
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
-    margin: 0;
+    margin: 15px 0 0 0;
 }
 
 .award-details {
@@ -1208,14 +1221,13 @@ a:hover {
 }
 
 .award-card:hover .award-brand {
-    height: 120px; /* Adjusted for larger logo */
+    height: 120px;
     padding-bottom: 10px;
 }
 
-.award-card:hover .award-logo {
-    width: 140px; /* Adjusted hover size */
-    height: 80px; /* Adjusted hover size */
-    margin-bottom: 10px;
+.award-card:hover .award-logo-container {
+    width: 140px;
+    height: 80px;
 }
 
 .award-card:hover .award-title {
@@ -1248,10 +1260,9 @@ a:hover {
         transition: transform 0.3s ease;
     }
 
-    .award-card:hover .award-logo {
+    .award-card:hover .award-logo-container {
         width: 180px;
         height: 100px;
-        margin-bottom: 20px;
     }
     
     .award-card:hover .award-title {
@@ -1263,7 +1274,6 @@ a:hover {
         box-shadow: 0 15px 30px rgba(0,0,0,0.2) !important;
     }
 }
-
 /* Services Section */
 .services-section {
     padding: 80px 0;

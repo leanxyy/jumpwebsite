@@ -149,12 +149,10 @@ body {
     object-fit: contain;
     margin-bottom: 25px;
     transition: var(--transition);
-    filter: grayscale(100%) contrast(70%);
-    opacity: 0.9;
+    opacity: 0.8;
 }
 
 .partner-card:hover .partner-logo {
-    filter: grayscale(0%) contrast(100%);
     opacity: 1;
     transform: scale(1.05);
 }

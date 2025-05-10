@@ -2408,3 +2408,104 @@ a:hover {
     from { opacity: 0; transform: translateY(-20px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
+
+/* Auto-scrolling Partners Carousel */
+.partners-carousel {
+    background-color: var(--gray-light);
+    padding: 50px 20px;
+    border-radius: 10px;
+    margin: 60px 0;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.partners-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.partners-track {
+    display: flex;
+    gap: 40px;
+    width: max-content;
+    will-change: transform;
+    animation: scroll 30s linear infinite;
+}
+
+.partner-logo {
+    flex: 0 0 auto;
+    width: 240px;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.partner-logo img {
+    max-width: 90%;
+    max-height: 90%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-240px * 6 - 40px * 5));
+    }
+}
+
+/* Pause animation on hover */
+.partners-container:hover .partners-track {
+    animation-play-state: paused;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .partner-logo {
+        width: 200px;
+        height: 120px;
+    }
+    @keyframes scroll {
+        100% {
+            transform: translateX(calc(-200px * 6 - 40px * 5));
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .partner-logo {
+        width: 180px;
+        height: 110px;
+    }
+    @keyframes scroll {
+        100% {
+            transform: translateX(calc(-180px * 6 - 40px * 5));
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .partner-logo {
+        width: 160px;
+        height: 100px;
+    }
+    @keyframes scroll {
+        100% {
+            transform: translateX(calc(-160px * 6 - 40px * 5));
+        }
+    }
+}

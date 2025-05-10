@@ -973,132 +973,90 @@ a:hover {
 /* Company Page Styles */
 .company-main {
     padding-top: 130px;
+    background-color: var(--light-color);
 }
 
-/* Parallax Section */
-.parallax-section {
+/* Company Intro Section */
+.company-intro-section {
     position: relative;
-    min-height: 80vh;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    color: white;
+    padding: 100px 0;
+    background-color: var(--light-color);
 }
 
-.parallax-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 120%;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../images/jumppic.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    z-index: -1;
+.company-intro-section .container {
+    position: relative;
+    z-index: 1;
 }
 
-.parallax-content {
-    width: 100%;
-    padding: 80px 0;
-}
-
-.parallax-card {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
+.intro-card {
+    background-color: white;
     border-radius: 15px;
-    padding: 40px;
+    padding: 0;
     max-width: 800px;
     margin: 0 auto;
-    border: 1px solid rgba(177, 164, 164, 0.2);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    transform: translateY(0);
-    transition: transform 0.5s ease;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(159, 1, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.intro-card-content {
+    position: relative;
+    z-index: 1;
+    padding: 50px;
 }
 
 .company-name {
     font-family: 'Anton', sans-serif;
     font-weight: 400;
-    font-size: 1.5rem;
+    font-size: 2rem;
     margin-bottom: 25px;
     text-align: center;
     letter-spacing: 1px;
     text-transform: uppercase;
-    color: white;
+    color: var(--primary-color);
+    position: relative;
 }
 
-.parallax-card p {
-    color: rgba(255, 255, 255, 0.9);
+.company-name:after {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 3px;
+    background-color: var(--primary-color);
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.intro-card p {
+    color: var(--dark-color);
     font-size: 1.1rem;
     line-height: 1.8;
     margin-bottom: 20px;
     font-family: 'Poppins', sans-serif;
 }
 
-.parallax-card .tagline {
-    color: #4fc3f7;
+.intro-card .tagline {
+    color: var(--blue-color);
     font-style: italic;
     font-size: 1.3rem;
     text-align: center;
     display: block;
     margin-top: 30px;
     font-family: 'Poppins', sans-serif;
+    font-weight: 500;
 }
 
-/* Image Cards Section */
-.image-cards-section {
-    padding: 80px 0;
-    background-color: var(--light-color);
-}
-
-.image-cards-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.image-card {
-    position: relative;
-    height: 300px;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    transform-style: preserve-3d;
-}
-
-.image-card img {
-    width: 250%;
-    height: 250%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.card-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
-    opacity: 0.7;
-    transition: opacity 0.3s ease;
-}
-
-.image-card:hover .card-overlay {
-    opacity: 0.4;
-}
-
-/* Responsive Styles */
+/* Responsive adjustments */
 @media (max-width: 992px) {
-    .parallax-card {
-        padding: 30px;
+    .intro-card-content {
+        padding: 40px;
     }
     
-    .image-cards-container {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    .company-name {
+        font-size: 1.8rem;
     }
 }
 
@@ -1107,20 +1065,24 @@ a:hover {
         padding-top: 120px;
     }
     
-    .parallax-section {
-        min-height: 70vh;
+    .company-intro-section {
+        padding: 80px 0;
+    }
+    
+    .intro-card-content {
+        padding: 30px;
     }
     
     .company-name {
-        font-size: 2rem;
+        font-size: 1.6rem;
     }
     
-    .parallax-card p {
+    .intro-card p {
         font-size: 1rem;
     }
     
-    .image-card {
-        height: 250px;
+    .intro-card .tagline {
+        font-size: 1.1rem;
     }
 }
 
@@ -1129,23 +1091,14 @@ a:hover {
         padding-top: 100px;
     }
     
-    .parallax-section {
-        min-height: 60vh;
+    .company-intro-section {
+        padding: 60px 0;
     }
     
-    .parallax-card {
+    .intro-card-content {
         padding: 25px;
     }
-    
-    .image-cards-container {
-        grid-template-columns: 1fr;
-    }
-    
-    .image-card {
-        height: 200px;
-    }
 }
-
 /* Awards Section */
 .awards-section {
     padding: 80px 0;

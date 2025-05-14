@@ -2478,3 +2478,110 @@ a:hover {
         }
     }
 }
+
+
+/* Larger Partner Logos */
+.partner-logo.fortinet-logo,
+.partner-logo.sophos-logo,
+.partner-logo.microsoft-logo,
+.partner-logo.samsung-logo,
+.partner-logo.vmware-logo {
+    width: 280px; /* Increased from 240px */
+    height: 160px; /* Increased from 140px */
+}
+
+/* Adjust the max-width/max-height for these logos */
+.partner-logo.fortinet-logo img,
+.partner-logo.sophos-logo img,
+.partner-logo.microsoft-logo img,
+.partner-logo.samsung-logo img,
+.partner-logo.vmware-logo img {
+    max-width: 95%;
+    max-height: 95%;
+}
+
+/* Adjust the animation for larger logos */
+@media (max-width: 1200px) {
+    .partner-logo.fortinet-logo,
+    .partner-logo.sophos-logo,
+    .partner-logo.microsoft-logo,
+    .partner-logo.samsung-logo,
+    .partner-logo.vmware-logo {
+        width: 260px;
+        height: 150px;
+    }
+}
+
+@media (max-width: 992px) {
+    .partner-logo.fortinet-logo,
+    .partner-logo.sophos-logo,
+    .partner-logo.microsoft-logo,
+    .partner-logo.samsung-logo,
+    .partner-logo.vmware-logo {
+        width: 240px;
+        height: 140px;
+    }
+}
+
+@media (max-width: 768px) {
+    .partner-logo.fortinet-logo,
+    .partner-logo.sophos-logo,
+    .partner-logo.microsoft-logo,
+    .partner-logo.samsung-logo,
+    .partner-logo.vmware-logo {
+        width: 220px;
+        height: 130px;
+    }
+}
+
+@media (max-width: 576px) {
+    .partner-logo.fortinet-logo,
+    .partner-logo.sophos-logo,
+    .partner-logo.microsoft-logo,
+    .partner-logo.samsung-logo,
+    .partner-logo.vmware-logo {
+        width: 200px;
+        height: 120px;
+    }
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-240px * 6 - 40px * 5 + (280px - 240px) * 2)); /* Adjusted for larger logos */
+    }
+}
+
+@media (max-width: 1200px) {
+    @keyframes scroll {
+        100% {
+            transform: translateX(calc(-220px * 6 - 40px * 5 + (260px - 220px) * 2));
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    @keyframes scroll {
+        100% {
+            transform: translateX(calc(-200px * 6 - 40px * 5 + (240px - 200px) * 2));
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    @keyframes scroll {
+        100% {
+            transform: translateX(calc(-180px * 6 - 40px * 5 + (220px - 180px) * 2));
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    @keyframes scroll {
+        100% {
+            transform: translateX(calc(-160px * 6 - 40px * 5 + (200px - 160px) * 2));
+        }
+    }
+}

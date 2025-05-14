@@ -47,106 +47,6 @@ body:before {
     padding: 0 20px;
 }
 
-/* Typography */
-h1, h2, h3, h4, h5, h6 {
-    line-height: 1.2;
-    margin-bottom: 1rem;
-}
-
-h1 {
-    font-size: 2.8rem;
-}
-
-h2 {
-    font-size: 2.2rem;
-    font-family: var(--font-header);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-h3 {
-    font-size: 1.5rem;
-}
-
-p {
-    margin-bottom: 1rem;
-    color: var(--gray-dark);
-    font-weight: 300;
-}
-
-a {
-    text-decoration: none;
-    color: var(--primary-color);
-    transition: all 0.3s ease;
-}
-
-a:hover {
-    color: var(--dark-color);
-}
-
-/* Buttons */
-.btn {
-    display: inline-block;
-    padding: 12px 25px;
-    border-radius: 4px;
-    font-weight: 500;
-    text-align: center;
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.btn-primary {
-    background-color: var(--primary-color);
-    color: var(--light-color);
-}
-
-.btn-primary:hover {
-    background-color: #7f0100;
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(159, 1, 0, 0.3);
-}
-
-.btn-outline {
-    background-color: transparent;
-    color: var(--primary-color);
-    border: 2px solid var(--primary-color);
-}
-
-.btn-outline:hover {
-    background-color: var(--primary-color);
-    color: var(--light-color);
-    transform: translateY(-3px);
-}
-
-.btn-newsletter {
-    background-color: var(--blue-color);
-    color: var(--light-color);
-}
-
-.btn-newsletter:hover {
-    background-color: #1a4bc7;
-    transform: translateY(-3px);
-}
-
-.btn-know-more {
-    background-color: var(--primary-color);
-    color: var(--light-color);
-    padding: 12px 30px;
-    font-size: 1rem;
-    margin: 40px auto 0;
-    display: block;
-    width: fit-content;
-}
-
-.btn-know-more:hover {
-    background-color: #7f0100;
-    transform: translateY(-3px);
-}
-
 /* Header with extra large logo */
 .header {
     background-color: var(--light-color);
@@ -160,15 +60,12 @@ a:hover {
 
 .header .container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 0 20px;
-    max-width: 1200px;
-    margin: 0 auto;
 }
 
 .logo {
-    margin-right: auto; /* Pushes logo to the left */
+    margin-right: auto;
 }
 
 .logo a {
@@ -187,7 +84,7 @@ a:hover {
 }
 
 .navbar {
-    margin-left: auto; /* Pushes navbar to the right */
+    margin-left: auto;
 }
 
 .navbar ul {
@@ -304,6 +201,7 @@ a:hover {
         display: block;
     }
 }
+
 
 
 /* Page title with logo */
